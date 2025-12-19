@@ -8,7 +8,7 @@ from src.verb_model import (
     load_verbs,
     filter_verbs_by_level,
     get_active_verbs,
-    prioritize_active_verbs
+    select_verb_for_exercise
 )
 from src.exercise_templates import find_compatible_template
 from src.config import Config
@@ -58,35 +58,20 @@ def run_cli():
     # Get active verbs (default: from active_verbs.json)
     active_verb_infinitives = get_active_verbs()
     
-    # Prioritize active verbs, but keep all available
-    prioritized_verbs = prioritize_active_verbs(all_verbs, active_verb_infinitives, "A2")
+    # Use core selection function (CLI allows wider pool, same as before)
+    verb = select_verb_for_exercise(
+        all_verbs=all_verbs,
+        active_verb_infinitives=active_verb_infinitives,
+        level="A2",
+        use_wider_pool=True,  # CLI always allows wider pool
+        active_weight=0.7  # 70% active, 30% wider pool (maintains existing behavior)
+    )
     
-    if not prioritized_verbs:
-        print("Keine A2-Verben gefunden.")
+    if not verb:
+        print("Keine passende Übung gefunden.")
         return
     
-    # Filter verbs to only those with compatible templates
-    verbs_with_templates = [
-        verb for verb in prioritized_verbs 
-        if find_compatible_template(verb, "A2") is not None
-    ]
-    
-    if not verbs_with_templates:
-        print("Keine Verben mit passenden Übungen gefunden.")
-        return
-    
-    # Select verb: 70% chance from active verbs (if any), 30% from others
-    active_with_templates = [v for v in verbs_with_templates if v.infinitive in active_verb_infinitives]
-    others_with_templates = [v for v in verbs_with_templates if v.infinitive not in active_verb_infinitives]
-    
-    if active_with_templates and random.random() < 0.7:
-        verb = random.choice(active_with_templates)
-    elif others_with_templates:
-        verb = random.choice(others_with_templates)
-    else:
-        verb = random.choice(verbs_with_templates)
-    
-    # Find compatible template (guaranteed to exist)
+    # Find compatible template (guaranteed to exist from selection logic)
     exercise = find_compatible_template(verb, "A2")
     
     if not exercise:

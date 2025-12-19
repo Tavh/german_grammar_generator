@@ -474,5 +474,740 @@
       "mit dem Lehrer",
       "mit den Kollegen"
     ]
+  },
+  {
+    "infinitive": "sein",
+    "stem": "sei",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gewesen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to be"
+  },
+  {
+    "infinitive": "haben",
+    "stem": "hab",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gehabt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to have"
+  },
+  {
+    "infinitive": "fahren",
+    "stem": "fahr",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gefahren",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to drive, to travel",
+    "irregular_present": {
+      "du": "fährst",
+      "er": "fährt",
+      "sie": "fährt",
+      "es": "fährt"
+    }
+  },
+  {
+    "infinitive": "bleiben",
+    "stem": "bleib",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "geblieben",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to stay"
+  },
+  {
+    "infinitive": "sagen",
+    "stem": "sag",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gesagt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to say",
+    "allowed_objects": [
+      "die Wahrheit",
+      "Hallo",
+      "Tschüss",
+      "einen Satz"
+    ]
+  },
+  {
+    "infinitive": "fragen",
+    "stem": "frag",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": "nach",
+    "valency": "dat",
+    "partizip_ii": "gefragt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to ask",
+    "allowed_prepositional_objects": [
+      "nach dem Weg",
+      "nach der Zeit",
+      "nach dem Preis"
+    ]
+  },
+  {
+    "infinitive": "arbeiten",
+    "stem": "arbeit",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gearbeitet",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to work"
+  },
+  {
+    "infinitive": "lernen",
+    "stem": "lern",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gelernt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to learn",
+    "allowed_objects": [
+      "Deutsch",
+      "die Vokabeln",
+      "die Grammatik"
+    ]
+  },
+  {
+    "infinitive": "versuchen",
+    "stem": "versuch",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "versucht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to try",
+    "allowed_objects": [
+      "etwas",
+      "die Aufgabe",
+      "das Rezept"
+    ]
+  },
+  {
+    "infinitive": "brauchen",
+    "stem": "brauch",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gebraucht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to need",
+    "allowed_objects": [
+      "Hilfe",
+      "Zeit",
+      "Geld",
+      "einen Stift"
+    ]
+  },
+  {
+    "infinitive": "bezahlen",
+    "stem": "zahl",
+    "separable": false,
+    "prefix": "be",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "bezahlt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to pay",
+    "allowed_objects": [
+      "die Rechnung",
+      "das Essen",
+      "den Kaffee"
+    ]
+  },
+  {
+    "infinitive": "bestellen",
+    "stem": "bestell",
+    "separable": false,
+    "prefix": "be",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "bestellt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to order",
+    "allowed_objects": [
+      "das Essen",
+      "einen Kaffee",
+      "ein Taxi"
+    ]
+  },
+  {
+    "infinitive": "suchen",
+    "stem": "such",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": "nach",
+    "valency": "dat",
+    "partizip_ii": "gesucht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to search, to look for",
+    "allowed_prepositional_objects": [
+      "nach dem Schlüssel",
+      "nach der Arbeit",
+      "nach einem Job"
+    ]
+  },
+  {
+    "infinitive": "finden",
+    "stem": "find",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gefunden",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to find",
+    "irregular_present": {
+      "du": "findest",
+      "er": "findet",
+      "sie": "findet",
+      "es": "findet"
+    },
+    "allowed_objects": [
+      "den Schlüssel",
+      "die Arbeit",
+      "einen Job"
+    ]
+  },
+  {
+    "infinitive": "wohnen",
+    "stem": "wohn",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gewohnt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to live, to reside"
+  },
+  {
+    "infinitive": "leben",
+    "stem": "leb",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gelebt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to live"
+  },
+  {
+    "infinitive": "mieten",
+    "stem": "miet",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gemietet",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to rent",
+    "allowed_objects": [
+      "eine Wohnung",
+      "ein Auto",
+      "ein Fahrrad"
+    ]
+  },
+  {
+    "infinitive": "nehmen",
+    "stem": "nehm",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "genommen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to take",
+    "irregular_present": {
+      "du": "nimmst",
+      "er": "nimmt",
+      "sie": "nimmt",
+      "es": "nimmt"
+    },
+    "allowed_objects": [
+      "den Bus",
+      "das Taxi",
+      "einen Kaffee"
+    ]
+  },
+  {
+    "infinitive": "geben",
+    "stem": "geb",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "gegeben",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to give",
+    "irregular_present": {
+      "du": "gibst",
+      "er": "gibt",
+      "sie": "gibt",
+      "es": "gibt"
+    },
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "den Kindern"
+    ]
+  },
+  {
+    "infinitive": "bringen",
+    "stem": "bring",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "gebracht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to bring",
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "den Kindern"
+    ]
+  },
+  {
+    "infinitive": "mitkommen",
+    "stem": "komm",
+    "separable": true,
+    "prefix": "mit",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "mitgekommen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to come along"
+  },
+  {
+    "infinitive": "sich interessieren",
+    "stem": "interessier",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": "für",
+    "valency": "akk",
+    "partizip_ii": "interessiert",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to be interested in",
+    "allowed_prepositional_objects": [
+      "für Musik",
+      "für Sport",
+      "für Deutsch"
+    ]
+  },
+  {
+    "infinitive": "spielen",
+    "stem": "spiel",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gespielt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to play",
+    "allowed_objects": [
+      "Fußball",
+      "Klavier",
+      "ein Spiel"
+    ]
+  },
+  {
+    "infinitive": "sehen",
+    "stem": "seh",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gesehen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to see",
+    "irregular_present": {
+      "du": "siehst",
+      "er": "sieht",
+      "sie": "sieht",
+      "es": "sieht"
+    },
+    "allowed_objects": [
+      "einen Film",
+      "den Freund",
+      "die Freundin"
+    ]
+  },
+  {
+    "infinitive": "hören",
+    "stem": "hör",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gehört",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to hear, to listen",
+    "allowed_objects": [
+      "Musik",
+      "den Lehrer",
+      "die Nachrichten"
+    ]
+  },
+  {
+    "infinitive": "verstehen",
+    "stem": "versteh",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "verstanden",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to understand",
+    "irregular_present": {
+      "du": "verstehst",
+      "er": "versteht",
+      "sie": "versteht",
+      "es": "versteht"
+    },
+    "allowed_objects": [
+      "den Text",
+      "die Frage",
+      "Deutsch"
+    ]
+  },
+  {
+    "infinitive": "kennen",
+    "stem": "kenn",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gekannt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to know (be familiar with)",
+    "allowed_objects": [
+      "den Freund",
+      "die Stadt",
+      "das Lied"
+    ]
+  },
+  {
+    "infinitive": "wissen",
+    "stem": "weiß",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gewusst",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to know (a fact)",
+    "irregular_present": {
+      "ich": "weiß",
+      "du": "weißt",
+      "er": "weiß",
+      "sie": "weiß",
+      "es": "weiß"
+    }
+  },
+  {
+    "infinitive": "öffnen",
+    "stem": "öffn",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "geöffnet",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to open",
+    "allowed_objects": [
+      "die Tür",
+      "das Fenster",
+      "das Buch"
+    ]
+  },
+  {
+    "infinitive": "schließen",
+    "stem": "schließ",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "geschlossen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to close",
+    "allowed_objects": [
+      "die Tür",
+      "das Fenster",
+      "das Buch"
+    ]
+  },
+  {
+    "infinitive": "sich waschen",
+    "stem": "wasch",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gewaschen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to wash oneself",
+    "irregular_present": {
+      "du": "wäschst",
+      "er": "wäscht",
+      "sie": "wäscht",
+      "es": "wäscht"
+    }
+  },
+  {
+    "infinitive": "sich entscheiden",
+    "stem": "entscheid",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": "für",
+    "valency": "akk",
+    "partizip_ii": "entschieden",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to decide",
+    "allowed_prepositional_objects": [
+      "für den Job",
+      "für das Studium",
+      "für den Urlaub"
+    ]
+  },
+  {
+    "infinitive": "abfahren",
+    "stem": "fahr",
+    "separable": true,
+    "prefix": "ab",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "abgefahren",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to depart",
+    "irregular_present": {
+      "du": "fährst",
+      "er": "fährt",
+      "sie": "fährt",
+      "es": "fährt"
+    }
+  },
+  {
+    "infinitive": "zurückkommen",
+    "stem": "komm",
+    "separable": true,
+    "prefix": "zurück",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "zurückgekommen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to come back"
+  },
+  {
+    "infinitive": "aufmachen",
+    "stem": "mach",
+    "separable": true,
+    "prefix": "auf",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "aufgemacht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to open",
+    "allowed_objects": [
+      "die Tür",
+      "das Fenster",
+      "das Paket"
+    ]
+  },
+  {
+    "infinitive": "zumachen",
+    "stem": "mach",
+    "separable": true,
+    "prefix": "zu",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "zugemacht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to close",
+    "allowed_objects": [
+      "die Tür",
+      "das Fenster",
+      "das Buch"
+    ]
+  },
+  {
+    "infinitive": "schicken",
+    "stem": "schick",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "geschickt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to send",
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "den Eltern"
+    ]
+  },
+  {
+    "infinitive": "zeigen",
+    "stem": "zeig",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "gezeigt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to show",
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "den Kindern"
+    ]
+  },
+  {
+    "infinitive": "dürfen",
+    "stem": "dürf",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gedurft",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "may, to be allowed to",
+    "modal": true
+  },
+  {
+    "infinitive": "sollen",
+    "stem": "soll",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gesollt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "should, to be supposed to",
+    "modal": true
+  },
+  {
+    "infinitive": "mögen",
+    "stem": "mag",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gemocht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to like",
+    "modal": true,
+    "irregular_present": {
+      "ich": "mag",
+      "du": "magst",
+      "er": "mag",
+      "sie": "mag",
+      "es": "mag"
+    },
+    "allowed_objects": [
+      "den Film",
+      "die Musik",
+      "das Essen"
+    ]
   }
 ]

@@ -3,7 +3,7 @@ Verb data model and loading logic.
 """
 
 from dataclasses import dataclass
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Tuple
 import json
 from pathlib import Path
 
@@ -117,4 +117,81 @@ def prioritize_active_verbs(
     active = [v for v in verbs if v.infinitive in active_verb_infinitives and level in v.levels]
     others = [v for v in verbs if v.infinitive not in active_verb_infinitives and level in v.levels]
     return active + others
+
+
+def select_verb_for_exercise(
+    all_verbs: List[Verb],
+    active_verb_infinitives: List[str],
+    level: str,
+    use_wider_pool: bool = True,
+    active_weight: float = 0.75
+) -> Optional[Verb]:
+    """
+    Select a verb for exercise generation.
+    
+    Core verb selection logic that is UI-agnostic.
+    
+    Args:
+        all_verbs: Full base verb library (all available verbs)
+        active_verb_infinitives: List of active verb infinitives (priority verbs)
+        level: CEFR level (e.g., "A2")
+        use_wider_pool: If True, allows selection from wider pool (non-active verbs).
+                       If False, only selects from active verbs.
+        active_weight: Probability of selecting from active verbs (0.0-1.0).
+                      Default 0.75 (75% active, 25% wider pool).
+    
+    Returns:
+        Selected Verb object, or None if no suitable verb found.
+    """
+    import random
+    from src.exercise_templates import find_compatible_template
+    
+    # Filter to level
+    level_verbs = [v for v in all_verbs if level in v.levels]
+    
+    if not level_verbs:
+        return None
+    
+    # Filter to verbs with compatible templates
+    verbs_with_templates = [
+        verb for verb in level_verbs
+        if find_compatible_template(verb, level) is not None
+    ]
+    
+    if not verbs_with_templates:
+        return None
+    
+    # Split into active and wider pool
+    active_with_templates = [
+        v for v in verbs_with_templates
+        if v.infinitive in active_verb_infinitives
+    ]
+    
+    wider_pool = [
+        v for v in verbs_with_templates
+        if v.infinitive not in active_verb_infinitives
+    ]
+    
+    # Selection logic
+    if not use_wider_pool:
+        # Only from active verbs
+        if active_with_templates:
+            return random.choice(active_with_templates)
+        else:
+            # Fallback: no active verbs available, return None
+            return None
+    
+    # Use weighted selection between active and wider pool
+    if active_with_templates and random.random() < active_weight:
+        # Select from active verbs
+        return random.choice(active_with_templates)
+    elif wider_pool:
+        # Select from wider pool
+        return random.choice(wider_pool)
+    elif active_with_templates:
+        # Fallback: only active verbs available
+        return random.choice(active_with_templates)
+    else:
+        # No verbs available
+        return None
 
