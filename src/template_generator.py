@@ -129,6 +129,9 @@ def generate_exercise_instance(
     # MECHANICAL VALIDATION: Check verb data completeness
     
     # Rule 0: Frozen verbs cannot be freely generated
+    # FROZEN VERB RULE: Verbs with experiencer datives, inverted semantics, or
+    # impersonal subjects must not be freely generative. They require fixed_examples.
+    # Examples: passieren, gehören, fehlen, gefallen, kosten
     if verb.generation_mode == "frozen":
         return None  # Frozen verbs must use fixed_examples, not free generation
     

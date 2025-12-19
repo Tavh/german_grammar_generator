@@ -10,7 +10,29 @@ from pathlib import Path
 
 @dataclass
 class Verb:
-    """Represents a German verb with its grammatical properties."""
+    """
+    Represents a German verb with its grammatical properties.
+    
+    FROZEN VERB RULE (A2.1 lexical sanitation):
+    Verbs with experiencer datives, inverted semantics, or impersonal subjects
+    must NOT be freely generative. They must have:
+    - generation_mode: "frozen"
+    - fixed_examples: List of 3-5 idiomatic A2.1 sentences
+    
+    Examples of verbs that MUST be frozen:
+    - passieren (impersonal, inverted: thing happens to person)
+    - gehören (inverted: thing belongs to person)
+    - fehlen (inverted: thing is missing from person)
+    - gefallen (experiencer dative: thing pleases person)
+    - kosten (inverted: thing costs money, not person costs)
+    
+    These verbs cannot use free subject/object substitution because:
+    1. The grammatical object is semantically an experiencer, not a true object
+    2. The subject is semantically inverted (thing acts on person)
+    3. Free substitution produces misleading but grammatical sentences
+    
+    DO NOT reintroduce these verbs as normal valency verbs.
+    """
     infinitive: str
     stem: str
     separable: bool
@@ -72,10 +94,29 @@ class Verb:
 
 
 def load_verbs(json_path: Path) -> List[Verb]:
-    """Load verbs from a JSON file."""
+    """
+    Load verbs from a JSON file.
+    
+    VALIDATION: Frozen verbs must have fixed_examples.
+    Verbs with experiencer datives, inverted semantics, or impersonal subjects
+    must not be freely generative.
+    """
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
-    return [Verb.from_dict(item) for item in data]
+    
+    verbs = [Verb.from_dict(item) for item in data]
+    
+    # Validate frozen verbs have fixed_examples
+    for verb in verbs:
+        if verb.generation_mode == "frozen":
+            if not verb.fixed_examples or len(verb.fixed_examples) == 0:
+                raise ValueError(
+                    f"Frozen verb '{verb.infinitive}' must have fixed_examples. "
+                    "Verbs with experiencer datives, inverted semantics, or impersonal "
+                    "subjects cannot be freely generated."
+                )
+    
+    return verbs
 
 
 def filter_verbs_by_level(verbs: List[Verb], level: str) -> List[Verb]:

@@ -263,8 +263,15 @@ def generate_sentence(
     # MECHANICAL VALIDATION: Check all required elements are present
     
     # Rule 0: Frozen verbs cannot be freely generated
+    # FROZEN VERB RULE: Verbs with experiencer datives, inverted semantics, or
+    # impersonal subjects must not be freely generative. They require fixed_examples.
+    # Examples: passieren, gehören, fehlen, gefallen, kosten
     if verb.generation_mode == "frozen":
-        raise ValueError(f"Verb '{verb.infinitive}' is frozen and cannot be freely generated. Use fixed_examples instead.")
+        raise ValueError(
+            f"Verb '{verb.infinitive}' is frozen and cannot be freely generated. "
+            "Verbs with experiencer datives, inverted semantics, or impersonal "
+            "subjects must use fixed_examples. Use fixed_examples instead."
+        )
     
     # Rule 1: Impersonal verbs must use "es"
     if verb.impersonal and subject != "es":

@@ -363,6 +363,13 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to please, to like",
+    "generation_mode": "frozen",
+    "fixed_examples": [
+      "Das Buch gefällt mir.",
+      "Der Film gefällt dem Freund.",
+      "Die Musik gefällt der Freundin.",
+      "Das gefällt mir nicht."
+    ],
     "irregular_present": {
       "du": "gefällst",
       "er": "gefällt",
@@ -1228,15 +1235,26 @@
     "valency": "akk",
     "partizip_ii": "gemocht",
     "auxiliary": "haben",
+    "modal": true,
+    "generation_mode": "frozen",
     "levels": ["A2"],
     "english_meaning": "to like",
-    "modal": true,
+    "fixed_examples": [
+      "Ich mag den Film.",
+      "Du magst die Musik.",
+      "Er mag das Essen.",
+      "Wir mögen den Kaffee."
+    ],
     "irregular_present": {
       "ich": "mag",
       "du": "magst",
       "er": "mag",
       "sie": "mag",
-      "es": "mag"
+      "es": "mag",
+      "wir": "mögen",
+      "ihr": "mögt",
+      "Sie": "mögen",
+      "sie_plural": "mögen"
     },
     "allowed_objects": [
       "den Film",
@@ -1716,6 +1734,13 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to cost",
+    "generation_mode": "frozen",
+    "fixed_examples": [
+      "Das Buch kostet zehn Euro.",
+      "Der Kaffee kostet viel Geld.",
+      "Das kostet nichts.",
+      "Wie viel kostet das?"
+    ],
     "irregular_present": {
       "du": "kostest",
       "er": "kostet",
