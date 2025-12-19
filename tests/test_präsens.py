@@ -342,3 +342,35 @@ def test_wollen_du():
     result = conjugate_präsens(verb, "du")
     assert result == "willst"
 
+
+# ============================================================================
+# 8. Umlaut verbs (stem change with umlaut)
+# ============================================================================
+
+def test_gefallen_du():
+    """Test gefallen: du gefällst (umlaut a->ä)"""
+    verb = _get_verb("gefallen")
+    result = conjugate_präsens(verb, "du")
+    assert result == "gefällst"
+
+
+def test_gefallen_er():
+    """Test gefallen: er gefällt (umlaut a->ä)"""
+    verb = _get_verb("gefallen")
+    result = conjugate_präsens(verb, "er")
+    assert result == "gefällt"
+
+
+def test_laufen_du():
+    """Test laufen: du läufst (umlaut a->ä)"""
+    verb = _get_verb("laufen")
+    result = conjugate_präsens(verb, "du")
+    assert result == "läufst"
+
+
+def test_fahren_du():
+    """Test fahren: du fährst (umlaut a->ä)"""
+    verb = _get_verb("fahren")
+    result = conjugate_präsens(verb, "du")
+    assert result == "fährst"
+
