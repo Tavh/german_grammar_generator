@@ -126,7 +126,7 @@ def main():
         # Wider pool toggle
         st.header("🔍 Verb Discovery")
         use_wider_pool = st.checkbox(
-            "☐ Occasionally include new verbs",
+            "Occasionally include new verbs",
             value=st.session_state.use_wider_pool,
             help="When enabled, exercises may include verbs from the wider pool (not just active verbs). "
                  "This allows you to discover new verbs while still prioritizing your active verbs."
