@@ -111,6 +111,13 @@ def generate_exercise_instance(
     Generate a concrete exercise instance from a template pattern and verb.
     Uses only verb-specific semantic fillers (allowed_objects, allowed_prepositional_objects).
     
+    MECHANICAL RULES (no inference):
+    - If valency is "dat" or "akk", verb MUST have allowed_objects with matching case
+    - If preposition is set, verb MUST have allowed_prepositional_objects
+    - If reflexive is true, reflexive pronoun is mandatory
+    - If required_objects is set, all must be satisfiable from allowed_objects
+    - If data is missing, return None (do not generate)
+    
     Args:
         pattern: The template pattern
         verb: The verb to use
@@ -119,26 +126,51 @@ def generate_exercise_instance(
     Returns:
         A concrete ExerciseInstance, or None if verb lacks required fillers
     """
+    # MECHANICAL VALIDATION: Check verb data completeness
+    
+    # Rule 1: If valency is set, verb MUST have allowed_objects
+    if verb.valency in ["dat", "akk"]:
+        if not verb.allowed_objects or len(verb.allowed_objects) == 0:
+            return None  # Invalid: valency requires objects but none defined
+    
+    # Rule 2: If preposition is set, verb MUST have allowed_prepositional_objects
+    if verb.preposition:
+        if not verb.allowed_prepositional_objects or len(verb.allowed_prepositional_objects) == 0:
+            return None  # Invalid: preposition requires objects but none defined
+    
+    # Rule 3: If reflexive is true, reflexive pronoun is mandatory (handled in sentence generation)
+    # No validation needed here as it's automatically added
+    
+    # Rule 4: If required_objects is set, verify we can satisfy all requirements
+    if verb.required_objects:
+        if not verb.allowed_objects or len(verb.allowed_objects) == 0:
+            return None  # Invalid: required_objects but no allowed_objects defined
+    
     # Check if verb has required fillers for this template
     components = pattern.components
     
-    # Check for required object
+    # Check for required object (template requirement)
     if components.get("requires_object"):
-        if not verb.allowed_objects:
+        if not verb.allowed_objects or len(verb.allowed_objects) == 0:
             return None  # Verb doesn't have compatible objects
-        if len(verb.allowed_objects) == 0:
-            return None
     
-    # Check for required prepositional object
+    # Check for required prepositional object (template requirement)
     if components.get("requires_prepositional_object"):
-        if not verb.allowed_prepositional_objects:
+        if not verb.allowed_prepositional_objects or len(verb.allowed_prepositional_objects) == 0:
             return None  # Verb doesn't have compatible prepositional objects
-        if len(verb.allowed_prepositional_objects) == 0:
-            return None
     
     # Select subject
     if subject is None:
         subject = random.choice(pattern.subjects)
+    
+    # Enforce impersonal verb constraint: must use "es" or neutral subject
+    if verb.impersonal:
+        if subject not in ["es", "das", "etwas"]:
+            return None  # Impersonal verb cannot use personal subject
+        # If pattern doesn't allow "es", we can't use this verb
+        if "es" not in pattern.subjects:
+            return None
+        subject = "es"  # Force "es" for impersonal verbs
     
     # Generate hints
     hints = []
@@ -163,19 +195,92 @@ def generate_exercise_instance(
     objects = []
     prepositional_phrases = []
     
-    # Generate objects from verb.allowed_objects
-    if components.get("requires_object") and verb.allowed_objects:
+    # MECHANICAL OBJECT GENERATION: Only use explicitly defined objects
+    
+    # Rule: If required_objects is set, must satisfy ALL requirements
+    if verb.required_objects:
+        required_dat = "dat" in verb.required_objects
+        required_akk = "akk" in verb.required_objects
+        
+        # Helper to detect case from article (mechanical, no inference)
+        # Dative plural nouns (explicit list from data)
+        dative_plural_nouns = ["Kindern", "Eltern", "Kollegen", "Freunden"]
+        
+        def is_dative(obj: str) -> bool:
+            if obj.startswith(("dem ", "der ")):
+                return True
+            # "den" + plural noun = dative plural (explicit check)
+            if obj.startswith("den "):
+                noun = obj[4:]  # Remove "den "
+                if noun in dative_plural_nouns:
+                    return True
+            return False
+        
+        def is_accusative(obj: str) -> bool:
+            if obj.startswith(("die ", "das ", "einen ", "eine ", "ein ")):
+                return True
+            # "den" + singular noun = accusative masculine (explicit check)
+            if obj.startswith("den "):
+                noun = obj[4:]  # Remove "den "
+                if noun not in dative_plural_nouns:
+                    return True  # Accusative if not known dative plural
+            return False
+        
+        # For ditransitive verbs, we need both dative and accusative objects
+        if required_dat:
+            # Need a dative object - must exist in allowed_objects
+            dat_objects = [obj for obj in verb.allowed_objects if is_dative(obj)]
+            if not dat_objects:
+                return None  # Cannot satisfy required dative object - data incomplete
+            obj = random.choice(dat_objects)
+            objects.append(obj)
+            if "object" in pattern.hint_patterns:
+                hints.append(obj)
+        
+        if required_akk:
+            # Need an accusative object - must exist in allowed_objects
+            akk_objects = [obj for obj in verb.allowed_objects if is_accusative(obj)]
+            if not akk_objects:
+                return None  # Cannot satisfy required accusative object - data incomplete
+            obj = random.choice(akk_objects)
+            objects.append(obj)
+            if "object" in pattern.hint_patterns:
+                hints.append(obj)
+    
+    # Rule: If valency is set (and not required_objects), must use object from allowed_objects
+    elif verb.valency in ["dat", "akk"]:
+        # valency requires an object - must be in allowed_objects
+        if not verb.allowed_objects or len(verb.allowed_objects) == 0:
+            return None  # Invalid: valency requires object but none defined
         obj = random.choice(verb.allowed_objects)
         objects.append(obj)
-        # Add to hints
         if "object" in pattern.hint_patterns:
             hints.append(obj)
     
-    # Generate prepositional phrases from verb.allowed_prepositional_objects
-    if components.get("requires_prepositional_object") and verb.allowed_prepositional_objects:
+    # Rule: Template may also require an object (if not already satisfied by valency)
+    elif components.get("requires_object"):
+        if not verb.allowed_objects or len(verb.allowed_objects) == 0:
+            return None  # Template requires object but verb has none
+        obj = random.choice(verb.allowed_objects)
+        objects.append(obj)
+        if "object" in pattern.hint_patterns:
+            hints.append(obj)
+    
+    # Rule: If preposition is set, MUST use object from allowed_prepositional_objects
+    if verb.preposition:
+        if not verb.allowed_prepositional_objects or len(verb.allowed_prepositional_objects) == 0:
+            return None  # Invalid: preposition requires object but none defined
         prep_phrase = random.choice(verb.allowed_prepositional_objects)
         prepositional_phrases.append(prep_phrase)
-        # Add to hints
+        if "prepositional_object" in pattern.hint_patterns:
+            hints.append(prep_phrase)
+    
+    # Rule: Template may also require prepositional object (if not already satisfied)
+    elif components.get("requires_prepositional_object"):
+        if not verb.allowed_prepositional_objects or len(verb.allowed_prepositional_objects) == 0:
+            return None  # Template requires prepositional object but verb has none
+        prep_phrase = random.choice(verb.allowed_prepositional_objects)
+        prepositional_phrases.append(prep_phrase)
         if "prepositional_object" in pattern.hint_patterns:
             hints.append(prep_phrase)
     

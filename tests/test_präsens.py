@@ -374,3 +374,204 @@ def test_fahren_du():
     result = conjugate_präsens(verb, "du")
     assert result == "fährst"
 
+
+# ============================================================================
+# 9. -ern/-eln verbs (morphological rule: retain -er- before endings)
+# ============================================================================
+
+def test_sich_kümmern_du():
+    """Test sich kümmern: du kümmerst (must retain -er-)"""
+    verb = _get_verb("sich kümmern")
+    result = conjugate_präsens(verb, "du")
+    assert result == "kümmerst", f"Expected 'kümmerst', got '{result}'"
+
+
+def test_sich_kümmern_er():
+    """Test sich kümmern: er kümmert (must retain -er-)"""
+    verb = _get_verb("sich kümmern")
+    result = conjugate_präsens(verb, "er")
+    assert result == "kümmert", f"Expected 'kümmert', got '{result}'"
+
+
+def test_sich_kümmern_ich():
+    """Test sich kümmern: ich kümmere (must retain -er-)"""
+    verb = _get_verb("sich kümmern")
+    result = conjugate_präsens(verb, "ich")
+    assert result == "kümmere", f"Expected 'kümmere', got '{result}'"
+
+
+# ============================================================================
+# 10. Ditransitive verbs (require both dative and accusative objects)
+# ============================================================================
+
+def test_geben_requires_both_objects():
+    """Test that geben requires both dative and accusative objects"""
+    from src.verb_model import Verb
+    from src.template_generator import generate_exercise_instance, load_template_patterns
+    from pathlib import Path
+    
+    verb = _get_verb("geben")
+    assert verb.required_objects == ["dat", "akk"], "geben must require both dat and akk"
+    
+    # Check that verb has both dative and accusative objects
+    dat_objects = [obj for obj in (verb.allowed_objects or []) if obj.startswith(("dem ", "der ", "den "))]
+    akk_objects = [obj for obj in (verb.allowed_objects or []) if obj.startswith(("den ", "die ", "das ", "einen ", "eine ", "ein "))]
+    
+    assert len(dat_objects) > 0, "geben must have dative objects"
+    assert len(akk_objects) > 0, "geben must have accusative objects"
+
+
+def test_bringen_requires_both_objects():
+    """Test that bringen requires both dative and accusative objects"""
+    verb = _get_verb("bringen")
+    assert verb.required_objects == ["dat", "akk"], "bringen must require both dat and akk"
+
+
+# ============================================================================
+# 11. Impersonal verbs (require es/neutral subject)
+# ============================================================================
+
+def test_passieren_is_impersonal():
+    """Test that passieren is marked as impersonal"""
+    verb = _get_verb("passieren")
+    assert verb.impersonal == True, "passieren must be marked as impersonal"
+
+
+def test_impersonal_verb_subject_constraint():
+    """Test that impersonal verbs cannot use personal subjects"""
+    from src.template_generator import generate_exercise_instance, load_template_patterns
+    from pathlib import Path
+    
+    verb = _get_verb("passieren")
+    assert verb.impersonal == True
+    
+    # Load a template that would normally allow personal subjects
+    data_dir = Path(__file__).parent.parent / "data"
+    patterns_path = data_dir / "template_patterns.json"
+    patterns = load_template_patterns(patterns_path)
+    
+    # Find a pattern that matches passieren
+    compatible = [p for p in patterns if p.matches_verb(verb)]
+    
+    if compatible:
+        pattern = compatible[0]
+        # Try to generate with a personal subject - should fail or force "es"
+        instance = generate_exercise_instance(pattern, verb, subject="du")
+        if instance:
+            assert instance.subject == "es", f"Impersonal verb must use 'es', got '{instance.subject}'"
+
+
+# ============================================================================
+# 12. Mechanical validation tests (no inference, explicit data only)
+# ============================================================================
+
+def test_valency_requires_objects():
+    """Test that verbs with valency must have allowed_objects"""
+    from src.grammar_engine import generate_sentence
+    from src.verb_model import Verb
+    
+    # Create a verb with valency but no objects provided
+    verb = Verb(
+        infinitive="helfen",
+        stem="helf",
+        separable=False,
+        prefix="",
+        reflexive=False,
+        preposition=None,
+        valency="dat",
+        partizip_ii="geholfen",
+        auxiliary="haben",
+        levels=["A2"],
+        allowed_objects=["dem Freund"]  # Has objects defined
+    )
+    
+    # Should work with object
+    sentence = generate_sentence("ich", verb, objects=["dem Freund"])
+    assert "helfe" in sentence
+    assert "dem Freund" in sentence
+    
+    # Should fail without object (valency requires it)
+    try:
+        generate_sentence("ich", verb, objects=[])
+        assert False, "Should raise ValueError when valency requires object but none provided"
+    except ValueError as e:
+        assert "valency" in str(e).lower() or "object" in str(e).lower()
+
+
+def test_preposition_requires_prepositional_object():
+    """Test that verbs with preposition must have allowed_prepositional_objects"""
+    from src.grammar_engine import generate_sentence
+    from src.verb_model import Verb
+    
+    verb = Verb(
+        infinitive="warten",
+        stem="wart",
+        separable=False,
+        prefix="",
+        reflexive=False,
+        preposition="auf",
+        valency="akk",
+        partizip_ii="gewartet",
+        auxiliary="haben",
+        levels=["A2"],
+        allowed_prepositional_objects=["auf den Bus"]  # Has prepositional objects defined
+    )
+    
+    # Should work with prepositional phrase
+    sentence = generate_sentence("ich", verb, prepositional_phrases=["auf den Bus"])
+    assert "warte" in sentence
+    assert "auf den Bus" in sentence
+    
+    # Should fail without prepositional phrase
+    try:
+        generate_sentence("ich", verb, prepositional_phrases=[])
+        assert False, "Should raise ValueError when preposition requires object but none provided"
+    except ValueError as e:
+        assert "preposition" in str(e).lower()
+
+
+def test_required_objects_must_all_be_present():
+    """Test that ditransitive verbs require all required_objects"""
+    from src.grammar_engine import generate_sentence
+    
+    verb = _get_verb("geben")
+    assert verb.required_objects == ["dat", "akk"]
+    
+    # Should work with both objects
+    sentence = generate_sentence("ich", verb, objects=["dem Freund", "ein Buch"])
+    assert "gebe" in sentence
+    assert "dem Freund" in sentence
+    assert "ein Buch" in sentence
+    
+    # Should fail with only dative
+    try:
+        generate_sentence("ich", verb, objects=["dem Freund"])
+        assert False, "Should raise ValueError when required_objects not all present"
+    except ValueError as e:
+        assert "accusative" in str(e).lower() or "akk" in str(e).lower()
+    
+    # Should fail with only accusative
+    try:
+        generate_sentence("ich", verb, objects=["ein Buch"])
+        assert False, "Should raise ValueError when required_objects not all present"
+    except ValueError as e:
+        assert "dative" in str(e).lower() or "dat" in str(e).lower()
+
+
+def test_impersonal_verb_must_use_es():
+    """Test that impersonal verbs must use 'es' as subject"""
+    from src.grammar_engine import generate_sentence
+    
+    verb = _get_verb("passieren")
+    assert verb.impersonal == True
+    
+    # Should work with "es"
+    sentence = generate_sentence("es", verb, objects=["mir"])
+    assert "passiert" in sentence
+    
+    # Should fail with personal subject
+    try:
+        generate_sentence("du", verb, objects=["mir"])
+        assert False, "Should raise ValueError when impersonal verb uses personal subject"
+    except ValueError as e:
+        assert "impersonal" in str(e).lower() or "es" in str(e).lower()

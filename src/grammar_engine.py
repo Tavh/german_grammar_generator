@@ -79,27 +79,57 @@ def conjugate_präsens(verb: Verb, subject: str) -> str:
     """
     Conjugate a verb in Präsens for the given subject.
     
+    MECHANICAL RULES (no inference):
+    1. Check explicit irregular_present overrides first
+    2. Check known irregular verbs (modal verbs, etc.)
+    3. Apply known morphological rule: -ern/-eln verbs retain -er-
+    4. Apply regular rule: stem + ending
+    5. If form cannot be derived, raise error
+    
     Args:
         verb: The verb to conjugate
         subject: Subject pronoun (ich, du, er, sie, es, wir, ihr, Sie, sie_plural)
     
     Returns:
         The conjugated verb form
+    
+    Raises:
+        ValueError: If conjugated form cannot be derived from explicit data or known rules
     """
     infinitive = verb.infinitive
     
-    # Check for explicit irregular Präsens overrides first
+    # Rule 1: Check for explicit irregular Präsens overrides first
     if verb.irregular_present and subject in verb.irregular_present:
         return verb.irregular_present[subject]
     
-    # Check for irregular verbs (complete forms) - modal verbs, etc.
+    # Rule 2: Check for irregular verbs (complete forms) - modal verbs, etc.
     if infinitive in IRREGULAR_STEMS and subject in IRREGULAR_STEMS[infinitive]:
         return IRREGULAR_STEMS[infinitive][subject]
     
-    # Regular conjugation: stem + ending
+    # Rule 3: Known morphological rule: -ern/-eln verbs retain -er- before personal endings
+    # Extract verb part (remove "sich " prefix if present)
+    verb_part = infinitive
+    if infinitive.startswith("sich "):
+        verb_part = infinitive[5:]  # Remove "sich "
+    
+    if verb_part.endswith("ern") or verb_part.endswith("eln"):
+        # Remove -n to get base, then add -er- before ending
+        base_without_n = verb_part[:-1]  # e.g., "kümmern" -> "kümmer"
+        ending = PRÄSENS_ENDINGS.get(subject)
+        if ending is None:
+            raise ValueError(f"Cannot conjugate '{infinitive}' for subject '{subject}': unknown subject")
+        return base_without_n + ending
+    
+    # Rule 4: Regular conjugation: stem + ending
     # No vowel-change inference - all irregular forms must be in irregular_present
     base_stem = verb.stem
-    ending = PRÄSENS_ENDINGS.get(subject, "en")
+    ending = PRÄSENS_ENDINGS.get(subject)
+    
+    if ending is None:
+        raise ValueError(f"Cannot conjugate '{infinitive}' for subject '{subject}': unknown subject")
+    
+    if not base_stem:
+        raise ValueError(f"Cannot conjugate '{infinitive}': stem is empty")
     
     return base_stem + ending
 
@@ -197,7 +227,12 @@ def generate_sentence(
     """
     Generate a complete sentence from components.
     
-    This is the main entry point for sentence generation.
+    MECHANICAL VALIDATION (no inference):
+    - If valency is set, objects must be provided
+    - If preposition is set, prepositional_phrases must be provided
+    - If reflexive is true, reflexive pronoun is automatically added
+    - If required_objects is set, all must be present
+    - If impersonal is true, subject must be "es"
     
     Args:
         subject: Subject pronoun
@@ -208,7 +243,69 @@ def generate_sentence(
     
     Returns:
         A complete German sentence
+    
+    Raises:
+        ValueError: If required grammatical elements are missing
     """
+    if objects is None:
+        objects = []
+    if prepositional_phrases is None:
+        prepositional_phrases = []
+    
+    # MECHANICAL VALIDATION: Check all required elements are present
+    
+    # Rule 1: Impersonal verbs must use "es"
+    if verb.impersonal and subject != "es":
+        raise ValueError(f"Impersonal verb '{verb.infinitive}' requires subject 'es', got '{subject}'")
+    
+    # Rule 2: If valency is set, must have objects
+    if verb.valency in ["dat", "akk"]:
+        if not objects or len(objects) == 0:
+            raise ValueError(f"Verb '{verb.infinitive}' has valency '{verb.valency}' but no objects provided")
+    
+    # Rule 3: If preposition is set, must have prepositional phrases
+    if verb.preposition:
+        if not prepositional_phrases or len(prepositional_phrases) == 0:
+            raise ValueError(f"Verb '{verb.infinitive}' has preposition '{verb.preposition}' but no prepositional phrases provided")
+    
+    # Rule 4: If required_objects is set, must have all required cases
+    if verb.required_objects:
+        required_dat = "dat" in verb.required_objects
+        required_akk = "akk" in verb.required_objects
+        
+        # Helper to detect case (same as in template_generator)
+        dative_plural_nouns = ["Kindern", "Eltern", "Kollegen", "Freunden"]
+        
+        def is_dative(obj: str) -> bool:
+            if obj.startswith(("dem ", "der ")):
+                return True
+            if obj.startswith("den "):
+                noun = obj[4:]
+                if noun in dative_plural_nouns:
+                    return True
+            return False
+        
+        def is_accusative(obj: str) -> bool:
+            if obj.startswith(("die ", "das ", "einen ", "eine ", "ein ")):
+                return True
+            if obj.startswith("den "):
+                noun = obj[4:]
+                if noun not in dative_plural_nouns:
+                    return True
+            return False
+        
+        # Check all required objects are present
+        has_dat = any(is_dative(obj) for obj in objects)
+        has_akk = any(is_accusative(obj) for obj in objects)
+        
+        if required_dat and not has_dat:
+            raise ValueError(f"Verb '{verb.infinitive}' requires dative object but none provided")
+        if required_akk and not has_akk:
+            raise ValueError(f"Verb '{verb.infinitive}' requires accusative object but none provided")
+    
+    # Rule 5: Reflexive verbs automatically get reflexive pronoun (handled in build_main_clause)
+    # No validation needed - it's always added if verb.reflexive is True
+    
     conjugated = conjugate_präsens(verb, subject)
     return build_main_clause(
         subject=subject,

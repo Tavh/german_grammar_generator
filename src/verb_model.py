@@ -25,6 +25,8 @@ class Verb:
     allowed_objects: Optional[List[str]] = None  # Verb-specific objects (Akk/Dat)
     allowed_prepositional_objects: Optional[List[str]] = None  # Verb-specific prepositional objects
     irregular_present: Optional[Dict[str, str]] = None  # Explicit Präsens overrides (e.g., {"du": "isst", "er": "isst"})
+    required_objects: Optional[List[str]] = None  # Required object cases, e.g., ["dat", "akk"] for ditransitive verbs
+    impersonal: bool = False  # True if verb is impersonal (requires es/neutral subject)
 
     @classmethod
     def from_dict(cls, data: dict) -> "Verb":
@@ -43,7 +45,9 @@ class Verb:
             english_meaning=data.get("english_meaning"),
             allowed_objects=data.get("allowed_objects"),
             allowed_prepositional_objects=data.get("allowed_prepositional_objects"),
-            irregular_present=data.get("irregular_present")
+            irregular_present=data.get("irregular_present"),
+            required_objects=data.get("required_objects"),
+            impersonal=data.get("impersonal", False)
         )
 
     def to_dict(self) -> dict:

@@ -814,10 +814,16 @@
       "sie": "gibt",
       "es": "gibt"
     },
+    "required_objects": ["dat", "akk"],
     "allowed_objects": [
       "dem Freund",
       "der Freundin",
-      "den Kindern"
+      "den Kindern",
+      "ein Buch",
+      "das Buch",
+      "die Zeitung",
+      "einen Apfel",
+      "einen Kaffee"
     ]
   },
   {
@@ -832,10 +838,16 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to bring",
+    "required_objects": ["dat", "akk"],
     "allowed_objects": [
       "dem Freund",
       "der Freundin",
-      "den Kindern"
+      "den Kindern",
+      "ein Buch",
+      "das Buch",
+      "die Zeitung",
+      "einen Apfel",
+      "einen Kaffee"
     ]
   },
   {
@@ -1150,10 +1162,15 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to send",
+    "required_objects": ["dat", "akk"],
     "allowed_objects": [
       "dem Freund",
       "der Freundin",
-      "den Eltern"
+      "den Eltern",
+      "einen Brief",
+      "die E-Mail",
+      "das Paket",
+      "eine Postkarte"
     ]
   },
   {
@@ -1168,10 +1185,15 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to show",
+    "required_objects": ["dat", "akk"],
     "allowed_objects": [
       "dem Freund",
       "der Freundin",
-      "den Kindern"
+      "den Kindern",
+      "das Buch",
+      "die Stadt",
+      "ein Foto",
+      "die Sehenswürdigkeiten"
     ]
   },
   {
@@ -1440,10 +1462,15 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to explain",
+    "required_objects": ["dat", "akk"],
     "allowed_objects": [
       "dem Freund",
       "der Freundin",
-      "den Kindern"
+      "den Kindern",
+      "die Grammatik",
+      "die Aufgabe",
+      "den Weg",
+      "eine Regel"
     ]
   },
   {
@@ -1482,10 +1509,15 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to tell",
+    "required_objects": ["dat", "akk"],
     "allowed_objects": [
       "dem Freund",
       "der Freundin",
-      "den Kindern"
+      "den Kindern",
+      "eine Geschichte",
+      "die Wahrheit",
+      "einen Witz",
+      "die Neuigkeiten"
     ]
   },
   {
@@ -1560,6 +1592,7 @@
     "auxiliary": "sein",
     "levels": ["A2"],
     "english_meaning": "to happen",
+    "impersonal": true,
     "allowed_objects": [
       "dem Freund",
       "der Freundin",
