@@ -1209,5 +1209,792 @@
       "die Musik",
       "das Essen"
     ]
+  },
+  {
+    "infinitive": "laufen",
+    "stem": "lauf",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gelaufen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to run, to walk",
+    "irregular_present": {
+      "du": "läufst",
+      "er": "läuft",
+      "sie": "läuft",
+      "es": "läuft"
+    }
+  },
+  {
+    "infinitive": "rennen",
+    "stem": "renn",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gerannt",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to run"
+  },
+  {
+    "infinitive": "schlafen",
+    "stem": "schlaf",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "geschlafen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to sleep",
+    "irregular_present": {
+      "du": "schläfst",
+      "er": "schläft",
+      "sie": "schläft",
+      "es": "schläft"
+    }
+  },
+  {
+    "infinitive": "aufwachen",
+    "stem": "wach",
+    "separable": true,
+    "prefix": "auf",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "aufgewacht",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to wake up"
+  },
+  {
+    "infinitive": "sich setzen",
+    "stem": "setz",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gesetzt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to sit down"
+  },
+  {
+    "infinitive": "sich hinlegen",
+    "stem": "leg",
+    "separable": true,
+    "prefix": "hin",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "hingelegt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to lie down"
+  },
+  {
+    "infinitive": "sich ausruhen",
+    "stem": "ruh",
+    "separable": true,
+    "prefix": "aus",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "ausgeruht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to rest"
+  },
+  {
+    "infinitive": "studieren",
+    "stem": "studier",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "studiert",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to study",
+    "allowed_objects": [
+      "Medizin",
+      "Deutsch",
+      "an der Universität"
+    ]
+  },
+  {
+    "infinitive": "beginnen",
+    "stem": "beginn",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "begonnen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to begin, to start",
+    "allowed_objects": [
+      "die Arbeit",
+      "den Kurs",
+      "das Studium"
+    ]
+  },
+  {
+    "infinitive": "anfangen",
+    "stem": "fang",
+    "separable": true,
+    "prefix": "an",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "angefangen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to start, to begin",
+    "irregular_present": {
+      "du": "fängst",
+      "er": "fängt",
+      "sie": "fängt",
+      "es": "fängt"
+    },
+    "allowed_objects": [
+      "die Arbeit",
+      "den Kurs",
+      "das Studium"
+    ]
+  },
+  {
+    "infinitive": "aufhören",
+    "stem": "hör",
+    "separable": true,
+    "prefix": "auf",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "aufgehört",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to stop, to quit"
+  },
+  {
+    "infinitive": "beenden",
+    "stem": "beend",
+    "separable": false,
+    "prefix": "be",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "beendet",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to finish, to end",
+    "allowed_objects": [
+      "die Arbeit",
+      "den Kurs",
+      "das Studium"
+    ]
+  },
+  {
+    "infinitive": "erklären",
+    "stem": "erklär",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "erklärt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to explain",
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "den Kindern"
+    ]
+  },
+  {
+    "infinitive": "antworten",
+    "stem": "antwort",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": "auf",
+    "valency": "akk",
+    "partizip_ii": "geantwortet",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to answer",
+    "allowed_prepositional_objects": [
+      "auf die Frage",
+      "auf den Brief",
+      "auf die E-Mail"
+    ]
+  },
+  {
+    "infinitive": "erzählen",
+    "stem": "erzähl",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "erzählt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to tell",
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "den Kindern"
+    ]
+  },
+  {
+    "infinitive": "vergessen",
+    "stem": "vergess",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "vergessen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to forget",
+    "irregular_present": {
+      "du": "vergisst",
+      "er": "vergisst",
+      "sie": "vergisst",
+      "es": "vergisst"
+    },
+    "allowed_objects": [
+      "den Schlüssel",
+      "die Aufgabe",
+      "den Termin"
+    ]
+  },
+  {
+    "infinitive": "sich beschweren",
+    "stem": "beschwer",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": "über",
+    "valency": "akk",
+    "partizip_ii": "beschwert",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to complain",
+    "allowed_prepositional_objects": [
+      "über den Service",
+      "über das Essen",
+      "über die Arbeit"
+    ]
+  },
+  {
+    "infinitive": "sich kümmern",
+    "stem": "kümm",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": "um",
+    "valency": "akk",
+    "partizip_ii": "gekümmert",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to take care of",
+    "allowed_prepositional_objects": [
+      "um die Kinder",
+      "um den Garten",
+      "um die Eltern"
+    ]
+  },
+  {
+    "infinitive": "passieren",
+    "stem": "passier",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "passiert",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to happen",
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "mir"
+    ]
+  },
+  {
+    "infinitive": "gehören",
+    "stem": "gehör",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "gehört",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to belong to",
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "mir"
+    ]
+  },
+  {
+    "infinitive": "fliegen",
+    "stem": "flieg",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "geflogen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to fly"
+  },
+  {
+    "infinitive": "reisen",
+    "stem": "reis",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gereist",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to travel"
+  },
+  {
+    "infinitive": "aussteigen",
+    "stem": "steig",
+    "separable": true,
+    "prefix": "aus",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "ausgestiegen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to get off, to exit"
+  },
+  {
+    "infinitive": "einsteigen",
+    "stem": "steig",
+    "separable": true,
+    "prefix": "ein",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "eingestiegen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to get on, to board"
+  },
+  {
+    "infinitive": "umsteigen",
+    "stem": "steig",
+    "separable": true,
+    "prefix": "um",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "umgestiegen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to change (trains/buses)"
+  },
+  {
+    "infinitive": "reservieren",
+    "stem": "reservier",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "reserviert",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to reserve",
+    "allowed_objects": [
+      "einen Tisch",
+      "ein Zimmer",
+      "einen Platz"
+    ]
+  },
+  {
+    "infinitive": "kosten",
+    "stem": "kost",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gekostet",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to cost",
+    "allowed_objects": [
+      "zehn Euro",
+      "viel Geld",
+      "nichts"
+    ]
+  },
+  {
+    "infinitive": "sich wundern",
+    "stem": "wunder",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": "über",
+    "valency": "akk",
+    "partizip_ii": "gewundert",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to be surprised",
+    "allowed_prepositional_objects": [
+      "über die Nachricht",
+      "über das Ergebnis",
+      "über den Preis"
+    ]
+  },
+  {
+    "infinitive": "sich ärgern",
+    "stem": "ärger",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": "über",
+    "valency": "akk",
+    "partizip_ii": "geärgert",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to be annoyed",
+    "allowed_prepositional_objects": [
+      "über den Fehler",
+      "über die Situation",
+      "über das Wetter"
+    ]
+  },
+  {
+    "infinitive": "sich verabreden",
+    "stem": "verabred",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": "mit",
+    "valency": "dat",
+    "partizip_ii": "verabredet",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to make an appointment",
+    "allowed_prepositional_objects": [
+      "mit dem Freund",
+      "mit der Freundin",
+      "mit den Kollegen"
+    ]
+  },
+  {
+    "infinitive": "einladen",
+    "stem": "lad",
+    "separable": true,
+    "prefix": "ein",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "eingeladen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to invite",
+    "irregular_present": {
+      "du": "lädst",
+      "er": "lädt",
+      "sie": "lädt",
+      "es": "lädt"
+    },
+    "allowed_objects": [
+      "den Freund",
+      "die Freundin",
+      "die Gäste"
+    ]
+  },
+  {
+    "infinitive": "besuchen",
+    "stem": "besuch",
+    "separable": false,
+    "prefix": "be",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "besucht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to visit",
+    "allowed_objects": [
+      "den Freund",
+      "die Freundin",
+      "die Eltern"
+    ]
+  },
+  {
+    "infinitive": "besichtigen",
+    "stem": "besichtig",
+    "separable": false,
+    "prefix": "be",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "besichtigt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to visit (sightseeing)",
+    "allowed_objects": [
+      "die Stadt",
+      "das Museum",
+      "die Sehenswürdigkeiten"
+    ]
+  },
+  {
+    "infinitive": "kochen",
+    "stem": "koch",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gekocht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to cook",
+    "allowed_objects": [
+      "das Essen",
+      "einen Kuchen",
+      "das Abendessen"
+    ]
+  },
+  {
+    "infinitive": "backen",
+    "stem": "back",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gebacken",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to bake",
+    "irregular_present": {
+      "du": "bäckst",
+      "er": "bäckt",
+      "sie": "bäckt",
+      "es": "bäckt"
+    },
+    "allowed_objects": [
+      "einen Kuchen",
+      "Brot",
+      "Plätzchen"
+    ]
+  },
+  {
+    "infinitive": "putzen",
+    "stem": "putz",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "geputzt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to clean",
+    "allowed_objects": [
+      "die Wohnung",
+      "die Zähne",
+      "das Auto"
+    ]
+  },
+  {
+    "infinitive": "sich duschen",
+    "stem": "dusch",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "geduscht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to shower"
+  },
+  {
+    "infinitive": "sich kämmen",
+    "stem": "kämm",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gekämmt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to comb"
+  },
+  {
+    "infinitive": "sich rasieren",
+    "stem": "rasier",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "rasiert",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to shave"
+  },
+  {
+    "infinitive": "sich erkälten",
+    "stem": "erkält",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "erkältet",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to catch a cold"
+  },
+  {
+    "infinitive": "sich verletzen",
+    "stem": "verletz",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "verletzt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to injure oneself"
+  },
+  {
+    "infinitive": "fehlen",
+    "stem": "fehl",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "gefehlt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to be missing, to lack",
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "mir"
+    ]
+  },
+  {
+    "infinitive": "feiern",
+    "stem": "feier",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gefeiert",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to celebrate",
+    "allowed_objects": [
+      "den Geburtstag",
+      "Weihnachten",
+      "das Fest"
+    ]
+  },
+  {
+    "infinitive": "tanzen",
+    "stem": "tanz",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "getanzt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to dance"
+  },
+  {
+    "infinitive": "singen",
+    "stem": "sing",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gesungen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to sing",
+    "allowed_objects": [
+      "ein Lied",
+      "die Nationalhymne",
+      "die Melodie"
+    ]
+  },
+  {
+    "infinitive": "gewinnen",
+    "stem": "gewinn",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gewonnen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to win",
+    "allowed_objects": [
+      "das Spiel",
+      "den Preis",
+      "die Meisterschaft"
+    ]
+  },
+  {
+    "infinitive": "verlieren",
+    "stem": "verlier",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "verloren",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to lose",
+    "allowed_objects": [
+      "das Spiel",
+      "den Schlüssel",
+      "die Zeit"
+    ]
   }
 ]
