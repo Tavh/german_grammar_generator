@@ -128,6 +128,10 @@ def generate_exercise_instance(
     """
     # MECHANICAL VALIDATION: Check verb data completeness
     
+    # Rule 0: Frozen verbs cannot be freely generated
+    if verb.generation_mode == "frozen":
+        return None  # Frozen verbs must use fixed_examples, not free generation
+    
     # Rule 1: If valency is set, verb MUST have allowed_objects
     if verb.valency in ["dat", "akk"]:
         if not verb.allowed_objects or len(verb.allowed_objects) == 0:

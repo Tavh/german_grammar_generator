@@ -27,6 +27,8 @@ class Verb:
     irregular_present: Optional[Dict[str, str]] = None  # Explicit Präsens overrides (e.g., {"du": "isst", "er": "isst"})
     required_objects: Optional[List[str]] = None  # Required object cases, e.g., ["dat", "akk"] for ditransitive verbs
     impersonal: bool = False  # True if verb is impersonal (requires es/neutral subject)
+    generation_mode: Optional[str] = None  # "frozen" if verb cannot be freely generated (requires fixed_examples)
+    fixed_examples: Optional[List[str]] = None  # Predefined sentence templates for frozen verbs
 
     @classmethod
     def from_dict(cls, data: dict) -> "Verb":
@@ -47,7 +49,9 @@ class Verb:
             allowed_prepositional_objects=data.get("allowed_prepositional_objects"),
             irregular_present=data.get("irregular_present"),
             required_objects=data.get("required_objects"),
-            impersonal=data.get("impersonal", False)
+            impersonal=data.get("impersonal", False),
+            generation_mode=data.get("generation_mode"),
+            fixed_examples=data.get("fixed_examples")
         )
 
     def to_dict(self) -> dict:
@@ -156,10 +160,11 @@ def select_verb_for_exercise(
     if not level_verbs:
         return None
     
-    # Filter to verbs with compatible templates
+    # Filter to verbs with compatible templates and exclude frozen verbs
     verbs_with_templates = [
         verb for verb in level_verbs
-        if find_compatible_template(verb, level) is not None
+        if verb.generation_mode != "frozen"  # Exclude frozen verbs from free generation
+        and find_compatible_template(verb, level) is not None
     ]
     
     if not verbs_with_templates:

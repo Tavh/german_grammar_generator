@@ -1585,6 +1585,12 @@
     "levels": ["A2"],
     "english_meaning": "to happen",
     "impersonal": true,
+    "generation_mode": "frozen",
+    "fixed_examples": [
+      "Es passiert mir etwas.",
+      "Das passiert mir selten.",
+      "Was passiert dir?"
+    ],
     "allowed_objects": [
       "dem Freund",
       "der Freundin",
@@ -1603,6 +1609,12 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to belong to",
+    "generation_mode": "frozen",
+    "fixed_examples": [
+      "Das Buch gehört mir.",
+      "Das Auto gehört dem Freund.",
+      "Die Tasche gehört der Freundin."
+    ],
     "allowed_objects": [
       "dem Freund",
       "der Freundin",
@@ -1977,6 +1989,12 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to be missing, to lack",
+    "generation_mode": "frozen",
+    "fixed_examples": [
+      "Mir fehlt die Zeit.",
+      "Dem Freund fehlt das Geld.",
+      "Der Freundin fehlt der Schlüssel."
+    ],
     "allowed_objects": [
       "dem Freund",
       "der Freundin",

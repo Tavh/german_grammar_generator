@@ -262,6 +262,10 @@ def generate_sentence(
     
     # MECHANICAL VALIDATION: Check all required elements are present
     
+    # Rule 0: Frozen verbs cannot be freely generated
+    if verb.generation_mode == "frozen":
+        raise ValueError(f"Verb '{verb.infinitive}' is frozen and cannot be freely generated. Use fixed_examples instead.")
+    
     # Rule 1: Impersonal verbs must use "es"
     if verb.impersonal and subject != "es":
         raise ValueError(f"Impersonal verb '{verb.infinitive}' requires subject 'es', got '{subject}'")
