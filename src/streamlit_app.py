@@ -45,6 +45,12 @@ def initialize_session_state(default_active_verbs: list):
     if "is_new_verb" not in st.session_state:
         # Track if current verb is from wider pool
         st.session_state.is_new_verb = False
+    if "show_assistance" not in st.session_state:
+        # Default: show assistance (guidance and usage examples)
+        st.session_state.show_assistance = True
+    if "user_answer" not in st.session_state:
+        # Store user's typed answer
+        st.session_state.user_answer = ""
 
 
 def generate_new_exercise(all_verbs, active_verb_infinitives, use_wider_pool: bool, level="A2"):
@@ -111,53 +117,40 @@ def main():
     with st.sidebar:
         st.header("⚙️ Settings")
         
-        # Show meaning checkbox
         show_meaning = st.checkbox(
             "Show English meaning",
-            value=config.show_meaning,
-            help="Display English translations for verbs"
+            value=config.show_meaning
         )
-        
-        # Update config
         config.show_meaning = show_meaning
         
-        st.divider()
+        show_assistance = st.checkbox(
+            "Show assistance",
+            value=st.session_state.show_assistance
+        )
+        st.session_state.show_assistance = show_assistance
         
-        # Wider pool toggle
-        st.header("🔍 Verb Discovery")
         use_wider_pool = st.checkbox(
-            "Occasionally include new verbs",
-            value=st.session_state.use_wider_pool,
-            help="When enabled, exercises may include verbs from the wider pool (not just active verbs). "
-                 "This allows you to discover new verbs while still prioritizing your active verbs."
+            "Include new verbs",
+            value=st.session_state.use_wider_pool
         )
         st.session_state.use_wider_pool = use_wider_pool
         
         st.divider()
         
-        # Active verb selection
         st.header("📚 Active Verbs")
-        st.caption("Select verbs to practice. Exercises prioritize selected verbs (~75% of the time).")
-        
-        # Multiselect with current session state
+        st.caption("Active verbs are prioritized in exercises (~75% of the time). Select verbs you want to practice most.")
         selected_verbs = st.multiselect(
-            "Choose active verbs",
+            "Select verbs",
             options=all_verb_infinitives,
-            default=st.session_state.active_verbs,
-            help="Select verbs you want to practice. Default selection comes from active_verbs.json"
+            default=st.session_state.active_verbs
         )
-        
-        # Update session state
         st.session_state.active_verbs = selected_verbs
-        
-        # Stats
-        st.caption(f"📊 {len(a2_verbs)} total A2 verbs | {len(selected_verbs)} active")
+        st.caption(f"{len(a2_verbs)} total | {len(selected_verbs)} active")
     
     # Main content
     st.title("🇩🇪 German Grammar Generator")
     st.caption("Practice German verb grammar through active sentence production")
     
-    # Generate new exercise button
     if st.button("🎲 Next Exercise", type="primary", use_container_width=True):
         verb, exercise, is_new = generate_new_exercise(
             all_verbs=a2_verbs,
@@ -170,10 +163,11 @@ def main():
             st.session_state.verb = verb
             st.session_state.exercise = exercise
             st.session_state.solution_shown = False
+            st.session_state.user_answer = ""
             st.session_state.is_new_verb = is_new
             st.rerun()
         else:
-            st.error("Keine passende Übung gefunden. Bitte wähle andere Verben oder aktiviere 'Occasionally include new verbs'.")
+            st.error("No exercise found. Select more verbs or enable 'Include new verbs'.")
     
     # Display current exercise
     if st.session_state.verb and st.session_state.exercise:
@@ -183,66 +177,63 @@ def main():
         
         st.divider()
         
-        # Exercise display
-        st.subheader("📝 Exercise")
-        
-        # Verb header with "new" indicator
         col1, col2 = st.columns([3, 1])
         with col1:
-            verb_display = f"**Verb:** `{verb.infinitive}`"
+            verb_text = f"**Verb:** `{verb.infinitive}`"
             if is_new_verb:
-                verb_display += " 🆕 *New verb*"
-            st.markdown(verb_display)
+                verb_text += " 🆕"
+            st.markdown(verb_text)
         
-        # Add to active button (if new verb)
         if is_new_verb and verb.infinitive not in st.session_state.active_verbs:
             with col2:
-                if st.button("➕ Add to Active", key="add_to_active"):
+                if st.button("➕ Add to active verbs", key="add_to_active"):
                     if verb.infinitive not in st.session_state.active_verbs:
                         st.session_state.active_verbs.append(verb.infinitive)
-                    st.success(f"Added `{verb.infinitive}` to active verbs!")
                     st.rerun()
         
-        # Show meaning if configured
         if config.show_meaning and verb.english_meaning:
             st.caption(f"*{verb.english_meaning}*")
         
-        st.markdown("**Hinweise:**")
-        for hint in exercise.hints:
-            st.markdown(f"- {hint}")
+        if st.session_state.show_assistance:
+            for hint in exercise.hints:
+                st.markdown(f"- {hint}")
         
-        if exercise.description:
-            st.caption(exercise.description)
+        user_answer = st.text_input(
+            "",
+            value=st.session_state.user_answer,
+            key="answer_input",
+            placeholder="Type your sentence (practice only)",
+            label_visibility="visible"
+        )
+        st.session_state.user_answer = user_answer
         
-        st.divider()
-        
-        # Solution button
-        if not st.session_state.solution_shown:
-            if st.button("💡 Show Solution", use_container_width=True):
-                st.session_state.solution_shown = True
-                st.rerun()
-        else:
-            solution = exercise.generate_solution()
-            st.success(f"**Lösung:** {solution}")
-            
-            if st.button("🔄 New Exercise", use_container_width=True):
-                verb, exercise, is_new = generate_new_exercise(
-                    all_verbs=a2_verbs,
-                    active_verb_infinitives=st.session_state.active_verbs,
-                    use_wider_pool=st.session_state.use_wider_pool,
-                    level="A2"
-                )
-                if verb and exercise:
-                    st.session_state.verb = verb
-                    st.session_state.exercise = exercise
-                    st.session_state.solution_shown = False
-                    st.session_state.is_new_verb = is_new
+        if st.session_state.show_assistance:
+            if not st.session_state.solution_shown:
+                if st.button("💡 Show solution", use_container_width=True):
+                    st.session_state.solution_shown = True
                     st.rerun()
+            else:
+                solution = exercise.generate_solution()
+                st.success(solution)
+        
+        # New exercise button
+        if st.button("🔄 New Exercise", use_container_width=True):
+            verb, exercise, is_new = generate_new_exercise(
+                all_verbs=a2_verbs,
+                active_verb_infinitives=st.session_state.active_verbs,
+                use_wider_pool=st.session_state.use_wider_pool,
+                level="A2"
+            )
+            if verb and exercise:
+                st.session_state.verb = verb
+                st.session_state.exercise = exercise
+                st.session_state.solution_shown = False
+                st.session_state.user_answer = ""  # Clear answer when starting new exercise
+                st.session_state.is_new_verb = is_new
+                st.rerun()
     
     else:
-        # Initial state
-        st.info("👆 Click 'Next Exercise' to start practicing!")
-        st.caption(f"📊 {len(a2_verbs)} A2 verbs available | {len(st.session_state.active_verbs)} active verbs selected")
+        st.info("Click 'Next Exercise' to start")
 
 
 if __name__ == "__main__":
