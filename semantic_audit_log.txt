@@ -1,0 +1,44 @@
+================================================================================
+SEMANTIC CORRECTNESS AUDIT LOG
+Date: 2025-12-19 21:40:27
+Test Runs: 10000
+================================================================================
+
+Starting semantic audit: 10000 runs...
+
+Progress: 500/10000 runs, 499 sentences, 0 errors
+Progress: 1000/10000 runs, 999 sentences, 0 errors
+Progress: 1500/10000 runs, 1499 sentences, 0 errors
+Progress: 2000/10000 runs, 1999 sentences, 0 errors
+Progress: 2500/10000 runs, 2499 sentences, 0 errors
+Progress: 3000/10000 runs, 2999 sentences, 0 errors
+Progress: 3500/10000 runs, 3499 sentences, 0 errors
+Progress: 4000/10000 runs, 3999 sentences, 0 errors
+Progress: 4500/10000 runs, 4499 sentences, 0 errors
+Progress: 5000/10000 runs, 4999 sentences, 0 errors
+Progress: 5500/10000 runs, 5499 sentences, 0 errors
+Progress: 6000/10000 runs, 5999 sentences, 0 errors
+Progress: 6500/10000 runs, 6499 sentences, 0 errors
+Progress: 7000/10000 runs, 6999 sentences, 0 errors
+Progress: 7500/10000 runs, 7499 sentences, 0 errors
+Progress: 8000/10000 runs, 7999 sentences, 0 errors
+Progress: 8500/10000 runs, 8499 sentences, 0 errors
+Progress: 9000/10000 runs, 8999 sentences, 0 errors
+Progress: 9500/10000 runs, 9499 sentences, 0 errors
+Progress: 10000/10000 runs, 9999 sentences, 0 errors
+
+================================================================================
+SEMANTIC AUDIT RESULTS
+================================================================================
+Total sentences checked: 10000
+Fully natural: 10000 (100.0%)
+Semantically off: 0 (0.0%)
+Wrong usage: 0 (0.0%)
+
+
+No errors found! All sentences are semantically natural.
+
+================================================================================
+VERDICT: The grammar engine is semantically correct.
+All generated sentences are natural and appropriate for A2.1 learners.
+================================================================================
