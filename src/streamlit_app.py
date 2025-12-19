@@ -28,7 +28,7 @@ def initialize_session_state(default_active_verbs: list):
     Initialize Streamlit session state.
     
     Args:
-        default_active_verbs: Default active verbs from active_verbs.json
+        default_active_verbs: Default favourite verbs from active_verbs.json
     """
     if "exercise" not in st.session_state:
         st.session_state.exercise = None
@@ -37,11 +37,14 @@ def initialize_session_state(default_active_verbs: list):
     if "solution_shown" not in st.session_state:
         st.session_state.solution_shown = False
     if "active_verbs" not in st.session_state:
-        # Initialize with default active verbs
+        # Initialize with default favourite verbs
         st.session_state.active_verbs = default_active_verbs.copy()
     if "use_wider_pool" not in st.session_state:
         # Default: allow wider pool
         st.session_state.use_wider_pool = True
+    if "active_weight" not in st.session_state:
+        # Default: 75% favourite verbs, 25% new verbs
+        st.session_state.active_weight = 75
     if "is_new_verb" not in st.session_state:
         # Track if current verb is from wider pool
         st.session_state.is_new_verb = False
@@ -53,26 +56,30 @@ def initialize_session_state(default_active_verbs: list):
         st.session_state.user_answer = ""
 
 
-def generate_new_exercise(all_verbs, active_verb_infinitives, use_wider_pool: bool, level="A2"):
+def generate_new_exercise(all_verbs, active_verb_infinitives, use_wider_pool: bool, level="A2", active_weight: int = 75):
     """
     Generate a new exercise using core selection logic.
     
     Args:
         all_verbs: Full base verb library (all available verbs)
-        active_verb_infinitives: List of active verb infinitives
+        active_verb_infinitives: List of favourite verb infinitives
         use_wider_pool: Whether to allow selection from wider pool
         level: CEFR level
+        active_weight: Percentage of selecting from favourite verbs (0-100)
     
     Returns:
         Tuple of (verb, exercise, is_new_verb) or (None, None, False) if no exercise found
     """
+    # Convert percentage to decimal for select_verb_for_exercise
+    active_weight_decimal = active_weight / 100.0
+    
     # Use core selection function (UI-agnostic)
     verb = select_verb_for_exercise(
         all_verbs=all_verbs,
         active_verb_infinitives=active_verb_infinitives,
         level=level,
         use_wider_pool=use_wider_pool,
-        active_weight=0.75  # 75% active, 25% wider pool
+        active_weight=active_weight_decimal
     )
     
     if not verb:
@@ -100,14 +107,14 @@ def main():
     all_verbs = load_verbs(verbs_path)
     a2_verbs = filter_verbs_by_level(all_verbs, "A2")
     
-    # Load default active verbs from active_verbs.json
+    # Load default favourite verbs from active_verbs.json
     default_active = get_active_verbs()
     
     # Filter default_active to only include verbs that exist in database
     all_verb_infinitives = [v.infinitive for v in a2_verbs]
     valid_default_active = [v for v in default_active if v in all_verb_infinitives]
     
-    # Initialize session state with default active verbs
+    # Initialize session state with default favourite verbs
     initialize_session_state(valid_default_active)
     
     # Load config
@@ -137,15 +144,29 @@ def main():
         
         st.divider()
         
-        st.header("📚 Active Verbs")
-        st.caption("Active verbs are prioritized in exercises (~75% of the time). Select verbs you want to practice most.")
+        st.header("📚 Favourite Verbs")
+        st.caption("Select verbs you want to practice most.")
         selected_verbs = st.multiselect(
             "Select verbs",
             options=all_verb_infinitives,
             default=st.session_state.active_verbs
         )
         st.session_state.active_verbs = selected_verbs
-        st.caption(f"{len(a2_verbs)} total | {len(selected_verbs)} active")
+        st.caption(f"{len(a2_verbs)} total | {len(selected_verbs)} favourite")
+        
+        if use_wider_pool:
+            active_weight = st.slider(
+                "Favourite verb frequency",
+                min_value=0,
+                max_value=100,
+                value=st.session_state.active_weight,
+                step=5,
+                format="%d%%",
+                help="Percentage of exercises using favourite verbs (rest use new verbs)"
+            )
+            st.session_state.active_weight = active_weight
+            new_pct = 100 - active_weight
+            st.caption(f"{active_weight}% favourite | {new_pct}% new")
     
     # Main content
     st.title("🇩🇪 German Grammar Generator")
@@ -156,7 +177,8 @@ def main():
             all_verbs=a2_verbs,
             active_verb_infinitives=st.session_state.active_verbs,
             use_wider_pool=st.session_state.use_wider_pool,
-            level="A2"
+            level="A2",
+            active_weight=st.session_state.active_weight
         )
         
         if verb and exercise:
@@ -187,7 +209,7 @@ def main():
         
         if is_new_verb and verb.infinitive not in st.session_state.active_verbs:
             with col2:
-                if st.button("➕ Add to active verbs", key="add_to_active"):
+                if st.button("➕ Add to favourites", key="add_to_active"):
                     if verb.infinitive not in st.session_state.active_verbs:
                         st.session_state.active_verbs.append(verb.infinitive)
                     st.rerun()
@@ -223,7 +245,8 @@ def main():
                 all_verbs=a2_verbs,
                 active_verb_infinitives=st.session_state.active_verbs,
                 use_wider_pool=st.session_state.use_wider_pool,
-                level="A2"
+                level="A2",
+                active_weight=st.session_state.active_weight
             )
             if verb and exercise:
                 st.session_state.verb = verb
