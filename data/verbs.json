@@ -547,8 +547,6 @@
     "english_meaning": "to say",
     "allowed_objects": [
       "die Wahrheit",
-      "Hallo",
-      "Tschüss",
       "einen Satz"
     ]
   },
@@ -620,9 +618,7 @@
     "levels": ["A2"],
     "english_meaning": "to try",
     "allowed_objects": [
-      "etwas",
-      "die Aufgabe",
-      "das Rezept"
+      "etwas"
     ]
   },
   {
@@ -657,9 +653,7 @@
     "levels": ["A2"],
     "english_meaning": "to pay",
     "allowed_objects": [
-      "die Rechnung",
-      "das Essen",
-      "den Kaffee"
+      "die Rechnung"
     ]
   },
   {
@@ -936,7 +930,7 @@
     "levels": ["A2"],
     "english_meaning": "to hear, to listen",
     "allowed_objects": [
-      "Musik",
+      "die Musik",
       "den Lehrer",
       "die Nachrichten"
     ]
@@ -1367,8 +1361,7 @@
     "english_meaning": "to study",
     "allowed_objects": [
       "Medizin",
-      "Deutsch",
-      "an der Universität"
+      "Deutsch"
     ]
   },
   {
@@ -1408,7 +1401,6 @@
       "es": "fängt"
     },
     "allowed_objects": [
-      "die Arbeit",
       "den Kurs",
       "das Studium"
     ]
@@ -1720,8 +1712,7 @@
     },
     "allowed_objects": [
       "zehn Euro",
-      "viel Geld",
-      "nichts"
+      "viel Geld"
     ]
   },
   {
@@ -1858,7 +1849,6 @@
     "english_meaning": "to cook",
     "allowed_objects": [
       "das Essen",
-      "einen Kuchen",
       "das Abendessen"
     ]
   },
