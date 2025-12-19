@@ -121,7 +121,7 @@ def conjugate_präsens(verb: Verb, subject: str) -> str:
         return base_without_n + ending
     
     # Rule 4: Regular conjugation: stem + ending
-    # No vowel-change inference - all irregular forms must be in irregular_present
+    # Special rule for du form: stems ending in s/ß/z/tz/x use "t" not "st"
     base_stem = verb.stem
     ending = PRÄSENS_ENDINGS.get(subject)
     
@@ -130,6 +130,14 @@ def conjugate_präsens(verb: Verb, subject: str) -> str:
     
     if not base_stem:
         raise ValueError(f"Cannot conjugate '{infinitive}': stem is empty")
+    
+    # Special rule: du form with stems ending in s/ß/z/tz/x
+    if subject == "du" and ending == "st":
+        if base_stem and base_stem[-1] in ["s", "ß", "z", "x"]:
+            return base_stem + "t"  # e.g., "putz" + "t" = "putzt", not "putzst"
+        # Also check for "tz" ending (two characters)
+        if base_stem and len(base_stem) >= 2 and base_stem[-2:] == "tz":
+            return base_stem + "t"  # e.g., "schließ" + "t" = "schließt" (but "schließ" ends in ß, so first check handles it)
     
     return base_stem + ending
 
