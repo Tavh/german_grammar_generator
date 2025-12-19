@@ -149,9 +149,9 @@ def main():
     
     # Main content
     st.title("🇩🇪 German Grammar Generator")
-    st.caption("Practice German verb grammar through active sentence production")
     
-    if st.button("🎲 Next Exercise", type="primary", use_container_width=True):
+    # Auto-generate exercise on first load or if no exercise exists
+    if not st.session_state.verb or not st.session_state.exercise:
         verb, exercise, is_new = generate_new_exercise(
             all_verbs=a2_verbs,
             active_verb_infinitives=st.session_state.active_verbs,
@@ -168,6 +168,7 @@ def main():
             st.rerun()
         else:
             st.error("No exercise found. Select more verbs or enable 'Include new verbs'.")
+            st.stop()
     
     # Display current exercise
     if st.session_state.verb and st.session_state.exercise:
@@ -228,12 +229,9 @@ def main():
                 st.session_state.verb = verb
                 st.session_state.exercise = exercise
                 st.session_state.solution_shown = False
-                st.session_state.user_answer = ""  # Clear answer when starting new exercise
+                st.session_state.user_answer = ""
                 st.session_state.is_new_verb = is_new
                 st.rerun()
-    
-    else:
-        st.info("Click 'Next Exercise' to start")
 
 
 if __name__ == "__main__":

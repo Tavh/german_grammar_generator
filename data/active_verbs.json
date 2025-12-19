@@ -2,55 +2,43 @@
   "active_verbs": [
     "sein",
     "haben",
-
     "gehen",
     "kommen",
     "fahren",
     "bleiben",
-
     "treffen",
-    "sich treffen",
     "anrufen",
     "sprechen",
     "sagen",
     "fragen",
-
     "arbeiten",
     "lernen",
     "machen",
-    "versuchen",
     "brauchen",
-
     "kaufen",
     "bezahlen",
     "bestellen",
     "suchen",
     "finden",
-
     "essen",
     "trinken",
-
     "helfen",
     "warten",
-
     "wohnen",
     "leben",
     "mieten",
-
     "nehmen",
     "geben",
     "bringen",
-
     "aufstehen",
     "ankommen",
     "mitkommen",
-
     "sich erinnern",
     "sich freuen",
     "sich interessieren",
-
     "denken",
-    "bleiben"
+    "sehen",
+    "hören"
   ],
-  "notes": "Personal active verb list. Chosen to balance personal relevance with coverage of all verb types encountered up to A2.1 (reflexive, separable, directional, dative, prepositional). Keep this list small and update it based on actual usage."
+  "notes": "Curated list of natural, commonly used A2 verbs. Covers essential verbs, movement, communication, daily activities, and common grammatical patterns (reflexive, separable, dative, prepositional)."
 }
