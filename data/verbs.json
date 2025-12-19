@@ -581,7 +581,13 @@
     "partizip_ii": "gearbeitet",
     "auxiliary": "haben",
     "levels": ["A2"],
-    "english_meaning": "to work"
+    "english_meaning": "to work",
+    "irregular_present": {
+      "du": "arbeitest",
+      "er": "arbeitet",
+      "sie": "arbeitet",
+      "es": "arbeitet"
+    }
   },
   {
     "infinitive": "lernen",
@@ -754,6 +760,12 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to rent",
+    "irregular_present": {
+      "du": "mietest",
+      "er": "mietet",
+      "sie": "mietet",
+      "es": "mietet"
+    },
     "allowed_objects": [
       "eine Wohnung",
       "ein Auto",
@@ -1046,6 +1058,12 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to decide",
+    "irregular_present": {
+      "du": "entscheidest",
+      "er": "entscheidet",
+      "sie": "entscheidet",
+      "es": "entscheidet"
+    },
     "allowed_prepositional_objects": [
       "für den Job",
       "für das Studium",
@@ -1398,6 +1416,12 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to finish, to end",
+    "irregular_present": {
+      "du": "beendest",
+      "er": "beendet",
+      "sie": "beendet",
+      "es": "beendet"
+    },
     "allowed_objects": [
       "die Arbeit",
       "den Kurs",
@@ -1434,6 +1458,12 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to answer",
+    "irregular_present": {
+      "du": "antwortest",
+      "er": "antwortet",
+      "sie": "antwortet",
+      "es": "antwortet"
+    },
     "allowed_prepositional_objects": [
       "auf die Frage",
       "auf den Brief",
@@ -1649,6 +1679,12 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to cost",
+    "irregular_present": {
+      "du": "kostest",
+      "er": "kostet",
+      "sie": "kostet",
+      "es": "kostet"
+    },
     "allowed_objects": [
       "zehn Euro",
       "viel Geld",
@@ -1703,6 +1739,12 @@
     "auxiliary": "haben",
     "levels": ["A2"],
     "english_meaning": "to make an appointment",
+    "irregular_present": {
+      "du": "verabredest",
+      "er": "verabredet",
+      "sie": "verabredet",
+      "es": "verabredet"
+    },
     "allowed_prepositional_objects": [
       "mit dem Freund",
       "mit der Freundin",
@@ -1879,7 +1921,13 @@
     "partizip_ii": "erkältet",
     "auxiliary": "haben",
     "levels": ["A2"],
-    "english_meaning": "to catch a cold"
+    "english_meaning": "to catch a cold",
+    "irregular_present": {
+      "du": "erkältest",
+      "er": "erkältet",
+      "sie": "erkältet",
+      "es": "erkältet"
+    }
   },
   {
     "infinitive": "sich verletzen",
