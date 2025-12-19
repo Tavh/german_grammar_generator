@@ -1,0 +1,478 @@
+[
+  {
+    "infinitive": "treffen",
+    "stem": "treff",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": "mit",
+    "valency": "dat",
+    "partizip_ii": "getroffen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to meet",
+    "irregular_present": {
+      "du": "triffst",
+      "er": "trifft",
+      "sie": "trifft",
+      "es": "trifft"
+    },
+    "allowed_prepositional_objects": [
+      "mit dem Freund",
+      "mit der Freundin",
+      "mit den Kollegen",
+      "mit meiner Schwester"
+    ]
+  },
+  {
+    "infinitive": "anrufen",
+    "stem": "ruf",
+    "separable": true,
+    "prefix": "an",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "angerufen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to call",
+    "allowed_objects": [
+      "meine Mutter",
+      "den Freund",
+      "die Freundin",
+      "meine Schwester"
+    ]
+  },
+  {
+    "infinitive": "aufstehen",
+    "stem": "steh",
+    "separable": true,
+    "prefix": "auf",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "aufgestanden",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to get up",
+    "irregular_present": {
+      "du": "stehst",
+      "er": "steht",
+      "sie": "steht",
+      "es": "steht"
+    }
+  },
+  {
+    "infinitive": "sich freuen",
+    "stem": "freu",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": "auf",
+    "valency": "akk",
+    "partizip_ii": "gefreut",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to look forward to",
+    "allowed_prepositional_objects": [
+      "auf das Wochenende",
+      "auf den Urlaub",
+      "auf die Prüfung",
+      "auf den Besuch"
+    ]
+  },
+  {
+    "infinitive": "kaufen",
+    "stem": "kauf",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gekauft",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to buy",
+    "allowed_objects": [
+      "einen Apfel",
+      "das Buch",
+      "die Zeitung",
+      "eine Pizza",
+      "einen Kaffee",
+      "das Brot"
+    ]
+  },
+  {
+    "infinitive": "helfen",
+    "stem": "helf",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "geholfen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to help",
+    "irregular_present": {
+      "du": "hilfst",
+      "er": "hilft",
+      "sie": "hilft",
+      "es": "hilft"
+    },
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "den Kindern",
+      "dem Lehrer"
+    ]
+  },
+  {
+    "infinitive": "gehen",
+    "stem": "geh",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gegangen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to go"
+  },
+  {
+    "infinitive": "kommen",
+    "stem": "komm",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gekommen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to come"
+  },
+  {
+    "infinitive": "essen",
+    "stem": "ess",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gegessen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to eat",
+    "irregular_present": {
+      "du": "isst",
+      "er": "isst",
+      "sie": "isst",
+      "es": "isst"
+    },
+    "allowed_objects": [
+      "einen Apfel",
+      "eine Pizza",
+      "das Brot",
+      "einen Salat",
+      "das Frühstück"
+    ]
+  },
+  {
+    "infinitive": "trinken",
+    "stem": "trink",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "getrunken",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to drink",
+    "allowed_objects": [
+      "einen Kaffee",
+      "einen Tee",
+      "Wasser",
+      "einen Saft",
+      "die Milch"
+    ]
+  },
+  {
+    "infinitive": "lesen",
+    "stem": "les",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gelesen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to read",
+    "irregular_present": {
+      "du": "liest",
+      "er": "liest",
+      "sie": "liest",
+      "es": "liest"
+    },
+    "allowed_objects": [
+      "das Buch",
+      "die Zeitung",
+      "einen Artikel",
+      "die E-Mail"
+    ]
+  },
+  {
+    "infinitive": "schreiben",
+    "stem": "schreib",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "geschrieben",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to write",
+    "allowed_objects": [
+      "einen Brief",
+      "eine E-Mail",
+      "einen Text",
+      "die Hausaufgaben"
+    ]
+  },
+  {
+    "infinitive": "machen",
+    "stem": "mach",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "akk",
+    "partizip_ii": "gemacht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to make, to do",
+    "allowed_objects": [
+      "die Hausaufgaben",
+      "die Arbeit",
+      "einen Kuchen",
+      "Sport"
+    ]
+  },
+  {
+    "infinitive": "warten",
+    "stem": "wart",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": "auf",
+    "valency": "akk",
+    "partizip_ii": "gewartet",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to wait",
+    "irregular_present": {
+      "du": "wartest",
+      "er": "wartet",
+      "sie": "wartet",
+      "es": "wartet"
+    },
+    "allowed_prepositional_objects": [
+      "auf den Bus",
+      "auf den Zug",
+      "auf den Freund",
+      "auf die Freundin"
+    ]
+  },
+  {
+    "infinitive": "sich erinnern",
+    "stem": "erinner",
+    "separable": false,
+    "prefix": "",
+    "reflexive": true,
+    "preposition": "an",
+    "valency": "akk",
+    "partizip_ii": "erinnert",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to remember",
+    "allowed_prepositional_objects": [
+      "an den Urlaub",
+      "an die Prüfung",
+      "an den Freund",
+      "an die Freundin"
+    ]
+  },
+  {
+    "infinitive": "sich anziehen",
+    "stem": "zieh",
+    "separable": true,
+    "prefix": "an",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "angezogen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to get dressed",
+    "irregular_present": {
+      "du": "ziehst",
+      "er": "zieht",
+      "sie": "zieht",
+      "es": "zieht"
+    }
+  },
+  {
+    "infinitive": "einkaufen",
+    "stem": "kauf",
+    "separable": true,
+    "prefix": "ein",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "eingekauft",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to shop"
+  },
+  {
+    "infinitive": "ankommen",
+    "stem": "komm",
+    "separable": true,
+    "prefix": "an",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "angekommen",
+    "auxiliary": "sein",
+    "levels": ["A2"],
+    "english_meaning": "to arrive"
+  },
+  {
+    "infinitive": "gefallen",
+    "stem": "gefall",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": "dat",
+    "partizip_ii": "gefallen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to please, to like",
+    "irregular_present": {
+      "du": "gefallst",
+      "er": "gefällt",
+      "sie": "gefällt",
+      "es": "gefällt"
+    },
+    "allowed_objects": [
+      "dem Freund",
+      "der Freundin",
+      "den Kindern",
+      "dem Lehrer"
+    ]
+  },
+  {
+    "infinitive": "können",
+    "stem": "könn",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gekonnt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "can, to be able to",
+    "modal": true
+  },
+  {
+    "infinitive": "müssen",
+    "stem": "müss",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gemusst",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "must, to have to",
+    "modal": true
+  },
+  {
+    "infinitive": "wollen",
+    "stem": "will",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "gewollt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to want",
+    "modal": true
+  },
+  {
+    "infinitive": "sich vorstellen",
+    "stem": "stell",
+    "separable": true,
+    "prefix": "vor",
+    "reflexive": true,
+    "preposition": null,
+    "valency": null,
+    "partizip_ii": "vorgestellt",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to introduce oneself"
+  },
+  {
+    "infinitive": "denken",
+    "stem": "denk",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": "an",
+    "valency": "akk",
+    "partizip_ii": "gedacht",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to think",
+    "allowed_prepositional_objects": [
+      "an den Urlaub",
+      "an die Prüfung",
+      "an den Freund",
+      "an die Arbeit"
+    ]
+  },
+  {
+    "infinitive": "sprechen",
+    "stem": "sprech",
+    "separable": false,
+    "prefix": "",
+    "reflexive": false,
+    "preposition": "mit",
+    "valency": "dat",
+    "partizip_ii": "gesprochen",
+    "auxiliary": "haben",
+    "levels": ["A2"],
+    "english_meaning": "to speak",
+    "irregular_present": {
+      "du": "sprichst",
+      "er": "spricht",
+      "sie": "spricht",
+      "es": "spricht"
+    },
+    "allowed_prepositional_objects": [
+      "mit dem Freund",
+      "mit der Freundin",
+      "mit dem Lehrer",
+      "mit den Kollegen"
+    ]
+  }
+]

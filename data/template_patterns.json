@@ -1,0 +1,107 @@
+[
+  {
+    "id": "reflexive_prepositional",
+    "level": "A2",
+    "description": "Baue einen Satz im Präsens.",
+    "requirements": {
+      "reflexive": true,
+      "preposition": true
+    },
+    "subjects": ["du", "ich", "sie", "er"],
+    "hint_patterns": {
+      "subject": "{subject}",
+      "reflexive": "sich",
+      "preposition": "{preposition} ({valency_name})",
+      "object": "{prepositional_object}"
+    },
+    "components": {
+      "requires_prepositional_object": true
+    }
+  },
+  {
+    "id": "separable_object",
+    "level": "A2",
+    "description": "Baue einen Satz im Präsens.",
+    "requirements": {
+      "separable": true,
+      "valency": "akk"
+    },
+    "subjects": ["ich", "du", "wir"],
+    "hint_patterns": {
+      "subject": "{subject}",
+      "object": "{object}"
+    },
+    "components": {
+      "requires_object": true
+    }
+  },
+  {
+    "id": "separable_simple",
+    "level": "A2",
+    "description": "Baue einen Satz im Präsens.",
+    "requirements": {
+      "separable": true,
+      "valency": null
+    },
+    "subjects": ["er", "sie", "ich"],
+    "hint_patterns": {
+      "subject": "{subject}"
+    },
+    "components": {}
+  },
+  {
+    "id": "regular_object",
+    "level": "A2",
+    "description": "Baue einen Satz im Präsens.",
+    "requirements": {
+      "separable": false,
+      "reflexive": false,
+      "valency": "akk"
+    },
+    "subjects": ["wir", "ich", "du"],
+    "hint_patterns": {
+      "subject": "{subject}",
+      "object": "{object}"
+    },
+    "components": {
+      "requires_object": true
+    }
+  },
+  {
+    "id": "regular_dative",
+    "level": "A2",
+    "description": "Baue einen Satz im Präsens.",
+    "requirements": {
+      "separable": false,
+      "reflexive": false,
+      "valency": "dat"
+    },
+    "subjects": ["ich", "du", "wir"],
+    "hint_patterns": {
+      "subject": "{subject}",
+      "object": "{object}"
+    },
+    "components": {
+      "requires_object": true
+    }
+  },
+  {
+    "id": "prepositional",
+    "level": "A2",
+    "description": "Baue einen Satz im Präsens.",
+    "requirements": {
+      "separable": false,
+      "reflexive": false,
+      "preposition": true
+    },
+    "subjects": ["ich", "du", "wir"],
+    "hint_patterns": {
+      "subject": "{subject}",
+      "preposition": "{preposition} ({valency_name})",
+      "object": "{prepositional_object}"
+    },
+    "components": {
+      "requires_prepositional_object": true
+    }
+  }
+]
